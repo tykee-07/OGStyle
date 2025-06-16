@@ -1,0 +1,39 @@
+
+
+
+.brand-carousel {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  padding: 20px 0;
+  margin-top: 52px;
+h2{
+    color: rgb(0, 44, 106);
+    font-family: Montserrat;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 59px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+}
+
+.brand-track {
+    width: 1195px;  
+    margin-top: 58px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.5s ease;
+    .next{
+        width: 45px;
+        height: 20px;
+    }
+}
+
+.brand-slide img {
+    width: 160px;
+    height: 111px;
+    object-fit: contain;
+}

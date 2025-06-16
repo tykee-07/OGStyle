@@ -1,0 +1,123 @@
+.footer{
+    background: rgb(41, 41, 45);
+    display: flex;
+    align-items: center;
+    padding: 46px 164px 54px 164px;
+    
+    .lolp{
+        width: 189.95px;
+    height: 190px;
+    }
+    .sviz{
+        margin-left: 65px;
+    }
+
+    .messag{
+        display: flex;
+        gap: 30px;
+        margin-bottom: 35px;
+    }
+    .emal{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .tel{
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        color: rgb(179, 192, 210);
+        font-family: Ruda;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+
+    .meni{
+        color: rgb(179, 192, 210);
+        font-family: Ruda;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0%;
+        text-align: left;
+        margin-left: 40px;
+        ul{
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        li:hover{
+            color: rgb(255, 255, 255);
+            font-family: Ruda;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 17px;
+            letter-spacing: 0%;
+            text-align: left;
+            cursor: pointer;
+        }
+    }
+}
+
+.po{
+    display: flex;
+    gap: 20px;
+    justify-content: end;
+}
+.poisk{
+    margin-left: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+
+    .prof{
+        width: 43.99px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgb(25, 25, 25);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 21.99px;
+            height: 22px;
+        }
+    }
+}
+
+.inp{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    input{
+        width: 254.93px;
+        height: 44px;
+        box-shadow: inset 0px 4px 13px 0px rgba(0, 44, 106, 0.05);
+        background: rgba(179, 192, 210, 0.2);
+        border: none;
+        color: rgb(196, 196, 196);
+        font-family: Ruda;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0%;
+        text-align: left;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius:30px;
+    }
+
+    button{
+        width: 94.97px;
+        height: 44px;
+        box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.15);
+        background: rgb(25, 25, 25);
+        border: none;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+}
+
