@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import './Odesh.scss';
 import { APIclient } from '../../axios/APIcliend';
+import './Kross.scss';
 import bestlike from '../Beset/svg/best-like.svg';
 import Menu from '../Menu/Menu';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { setSelectedProduct } from '../../redux/productSlice';
+import { useNavigate } from 'react-router-dom';
 
-function Odesh() {
+function Kross() {
   const [list, setList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const dispatch = useDispatch();
@@ -16,11 +16,11 @@ function Odesh() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await APIclient.get(`?category=odezhda`);
+        const res = await APIclient.get(`?category=krossovki`);
         setList(res.data);
         setFilteredList(res.data);
       } catch (error) {
-        console.error('Ошибка при загрузке данных:', error);
+        console.error('Ошибка при загрузке кроссовок:', error);
       }
     }
     fetchData();
@@ -44,10 +44,9 @@ function Odesh() {
 
   return (
     <div className="wowl">
-      {/* Фильтр */}
+      {/* Боковое меню фильтра */}
       <Menu onApply={handleApplyFilters} />
 
-      {/* Сортировка */}
       <div className="odesh">
         <div className="pok">
           <span>Сортировка</span>
@@ -58,7 +57,7 @@ function Odesh() {
           </select>
         </div>
 
-        {/* Список карточек */}
+        {/* Карточки кроссовок */}
         {filteredList.map((item) => (
           <div key={item.id} className="odesh-kros" onClick={() => handleClick(item)}>
             <img src={item.img} alt={item.title} />
@@ -73,7 +72,7 @@ function Odesh() {
               </div>
             </div>
 
-            {/* Вторая часть карточки */}
+            {/* Расширенная карточка */}
             <div className="odesh-kros2">
               <img src={item.img} alt={item.title} />
               <div className="info-odesh2">
@@ -99,4 +98,4 @@ function Odesh() {
   );
 }
 
-export default Odesh;
+export default Kross;
