@@ -1,102 +1,69 @@
-import React, { useEffect, useState } from 'react';
-import './Odesh.scss';
-import { APIclient } from '../../axios/APIcliend';
-import bestlike from '../Beset/svg/best-like.svg';
-import Menu from '../Menu/Menu';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { setSelectedProduct } from '../../redux/productSlice';
-
+import React from 'react'
+import "./Odesh.scss"
+import { APIclient } from '../../axios/APIcliend'
+import { useEffect, useState } from 'react'
+import bestlike from "../Beset/svg/best-like.svg"
+import pro1 from "../Beset/img/pro1.png"
 function Odesh() {
-  const [list, setList] = useState([]);
-  const [filteredList, setFilteredList] = useState([]);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await APIclient.get(`?category=odezhda`);
-        setList(res.data);
-        setFilteredList(res.data);
-      } catch (error) {
-        console.error('Ошибка при загрузке данных:', error);
+    const [list, setList]=useState([])
+      async function data() {
+        try {
+          const res = await APIclient.get('https://6824116865ba05803398c659.mockapi.io/Prodact');
+          console.log(res);
+          setList(res.data);
+        } catch (error) {
+          console.log(error);
+          
+        }
       }
-    }
-    fetchData();
-  }, []);
-
-  const handleClick = (item) => {
-    dispatch(setSelectedProduct(item));
-    navigate(`/info/${item.id}`);
-  };
-
-  const handleApplyFilters = (filters) => {
-    const { min, max, brands, categories } = filters;
-    const newList = list.filter(item =>
-      item.price >= min &&
-      item.price <= max &&
-      (brands.length === 0 || brands.includes(item.brand || '')) &&
-      (categories.length === 0 || categories.includes(item.category || ''))
-    );
-    setFilteredList(newList);
-  };
-
+      useEffect(() => {
+        data();
+      }, [])
   return (
-    <div className="wowl">
-      {/* Фильтр */}
-      <Menu onApply={handleApplyFilters} />
-
-      {/* Сортировка */}
-      <div className="odesh">
-        <div className="pok">
-          <span>Сортировка</span>
-          <select>
-            <option value="default">По умолчанию</option>
-            <option value="new">Новые</option>
-            <option value="popular">Популярные</option>
-          </select>
-        </div>
-
-        {/* Список карточек */}
-        {filteredList.map((item) => (
-          <div key={item.id} className="odesh-kros" onClick={() => handleClick(item)}>
-            <img src={item.img} alt={item.title} />
-            <div className="info-odesh">
-              <div className="title-odesh">
-                <h4>{item.title}</h4>
-                <p>Артикул: {item.article || '19666'}</p>
-              </div>
-              <div className="like-odesh">
-                <h3>{item.price} ₽</h3>
-                <img src={bestlike} alt="like" />
-              </div>
-            </div>
-
-            {/* Вторая часть карточки */}
-            <div className="odesh-kros2">
-              <img src={item.img} alt={item.title} />
-              <div className="info-odesh2">
-                <div className="title2-odesh">
-                  <h4>{item.title}</h4>
-                  <p>Артикул: {item.article || '19666'}</p>
-                </div>
-                <div className="like2-odesh">
-                  <h3>{item.price} ₽</h3>
-                  <img src={bestlike} alt="like" />
-                </div>
-                <div className="eur-odesh">
-                  {[35, 36, 37, 38, 39, 40, 41].map((size) => (
-                    <p key={size}>{size} eur</p>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div>
+      {
+        list.map((item) => {
+          return (
+            <div key={item.id} className="pro-kros">
+                    <img src={item.img} alt="" />
+                    <div className="info-text">
+                      <div className="title">
+                         <h4>{item.title}</h4> 
+                       <p>Артикул 19666 </p>
+                      </div>
+                      <div className="like">
+                       <h3>3290 ₽</h3>
+                        <img src={bestlike} alt="" />
+                      </div>
+                      </div>
+                    <div className="pro-kros2">
+                    <img src={item.img} alt="" />
+                    <div className="info-text2">
+                      <div className="title2">
+                         <h4>{item.title}</h4> 
+                       <p>Артикул 19666 </p>
+                      </div>
+                      <div className="like2">
+                       <h3>3290 ₽</h3>
+                        <img src={bestlike} alt="" />
+                      </div>
+                      <div className="eur">
+                        <p>35 eur</p>
+                        <p>36 eur</p>
+                        <p>37 eur</p>
+                        <p>38 eur</p>
+                        <p>39 eur</p>
+                        <p>40 eur</p>
+                        <p>41 eur</p>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+          )
+        })
+      }
     </div>
-  );
+  )
 }
 
-export default Odesh;
+export default Odesh
