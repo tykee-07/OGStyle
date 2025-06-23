@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
-import Odesh from '../components/Odesh/Odesh'
+import Menu from '../components/Menu/Menu'
+import Acsser from '../components/Acssecuar/Acsser'
+
 
 function Register() {
  
   return (
-    <div>
-    <Odesh/>
+    <div className='about'>
+    {/* <Menu />   */}
+    <Acsser/>
      
     </div>
   )

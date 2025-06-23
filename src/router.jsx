@@ -4,6 +4,9 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Register from "./pages/Register";
+import InfoKros from "./pages/InfoKros";
+import Info from "./components/Info/Info";
+import Search from "./pages/Search";
 
 
 const myRouter=createBrowserRouter([
@@ -26,6 +29,18 @@ const myRouter=createBrowserRouter([
             {
                 path:"regicter",
                 element:<Register/>
+            },
+            {
+                path:"info/:id",
+                element:<Info/>
+            },
+            {
+                path:"infoKros",
+                element:<InfoKros/>
+            },
+            {
+                path:"search",
+                element:<Search/>
             },
         ]
     }

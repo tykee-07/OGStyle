@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import './Odesh.scss';
 import { APIclient } from '../../axios/APIcliend';
+import './Acsser.scss';
 import bestlike from '../Beset/svg/best-like.svg';
 import Menu from '../Menu/Menu';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { setSelectedProduct } from '../../redux/productSlice';
+import { useNavigate } from 'react-router-dom';
 
-function Odesh() {
+function Acsser() {
   const [list, setList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const dispatch = useDispatch();
@@ -16,11 +16,11 @@ function Odesh() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await APIclient.get(`?category=odezhda`);
+        const res = await APIclient.get(`?category=aksessuary`);
         setList(res.data);
         setFilteredList(res.data);
       } catch (error) {
-        console.error('Ошибка при загрузке данных:', error);
+        console.error('Ошибка при получении данных:', error);
       }
     }
     fetchData();
@@ -44,21 +44,19 @@ function Odesh() {
 
   return (
     <div className="wowl">
-      {/* Фильтр */}
+      {/* Фильтр по брендам, категории и цене */}
       <Menu onApply={handleApplyFilters} />
 
-      {/* Сортировка */}
       <div className="odesh">
         <div className="pok">
           <span>Сортировка</span>
           <select>
             <option value="default">По умолчанию</option>
-            <option value="new">Новые</option>
+            <option value="new">Новый</option>
             <option value="popular">Популярные</option>
           </select>
         </div>
 
-        {/* Список карточек */}
         {filteredList.map((item) => (
           <div key={item.id} className="odesh-kros" onClick={() => handleClick(item)}>
             <img src={item.img} alt={item.title} />
@@ -73,7 +71,6 @@ function Odesh() {
               </div>
             </div>
 
-            {/* Вторая часть карточки */}
             <div className="odesh-kros2">
               <img src={item.img} alt={item.title} />
               <div className="info-odesh2">
@@ -99,4 +96,4 @@ function Odesh() {
   );
 }
 
-export default Odesh;
+export default Acsser;
